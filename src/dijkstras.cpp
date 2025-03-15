@@ -1,11 +1,17 @@
 #include "dijkstras.h"
+struct Compare {
+public:
+    bool operator()(pair<int, int> const& a, pair<int, int> const& b) {
+        return a.second > b.second;
+    }
+};
 
 vector<int> dijkstra_shortest_path(const Graph &G, int source, vector<int> &previous)
 {
     int numVertices = G.size();
     vector<int> distances(numVertices, INF);
     vector<bool> visited(numVertices, false);
-    priority_queue<pair<int, int>> minHeap;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, Compare> minHeap;
     minHeap.push({source, 0});
     distances[source] = 0;
     while (!minHeap.empty())

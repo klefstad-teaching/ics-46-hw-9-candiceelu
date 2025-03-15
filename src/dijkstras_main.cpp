@@ -28,7 +28,31 @@ void test_small() {
     }
 }
 
+void test_medium() {
+    Graph g;
+    file_to_graph("src/medium.txt", g);
+    for (int i=0; i<g.numVertices; ++i) {
+        vector<int> previous (g.numVertices, -1);
+        vector<int> distances = dijkstra_shortest_path(g, 0, previous);
+        vector<int> result = extract_shortest_path(distances, previous, i);
+        print_path(result, 10);
+    }
+}
+
+void test_large() {
+    Graph g;
+    file_to_graph("src/large.txt", g);
+    for (int i=0; i<g.numVertices; ++i) {
+        vector<int> previous (g.numVertices, -1);
+        vector<int> distances = dijkstra_shortest_path(g, 0, previous);
+        vector<int> result = extract_shortest_path(distances, previous, i);
+        print_path(distances, 10);
+    }
+}
+
 int main() {
     // test_shortest_path();
-    test_small();
+    // test_small();
+    // test_medium();
+    test_large();
 }
