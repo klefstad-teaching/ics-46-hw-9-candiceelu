@@ -1,7 +1,9 @@
 #include "dijkstras.h"
-struct Compare {
+struct Compare
+{
 public:
-    bool operator()(pair<int, int> const& a, pair<int, int> const& b) {
+    bool operator()(pair<int, int> const &a, pair<int, int> const &b)
+    {
         return a.second > b.second;
     }
 };
@@ -41,7 +43,7 @@ vector<int> extract_shortest_path(const vector<int> &dist, const vector<int> &pr
     vector<int> copy = dist;
     vector<int> result;
     int next = destination;
-    while (next != -1)
+    while (next != -1 && dist[next] != 0)
     {
         result.push_back(next);
         next = previous[next];
