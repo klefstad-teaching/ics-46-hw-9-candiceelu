@@ -38,13 +38,15 @@ bool edit_distance_within(const std::string &str1, const std::string &str2, int 
             j++;
         }
     }
-    // if (i < length1 || j < length2)
-    //     count++;
+    cout << "COUNT: " << count << endl;
+    if (count < d && abs(length1 - length2) == d)
+        count++;
     return count == d;
 }
 
 bool is_adjacent(const string &word1, const string &word2)
 {
+    if (word1 == word2)  { return true; }
     return edit_distance_within(word1, word2, 1);
 }
 
@@ -70,6 +72,9 @@ vector<string> generate_word_ladder(const string &begin_word, const string &end_
                     new_ladder.push_back(word);
                     if (word == end_word)
                     {
+                        // for (auto it = ladder_queue.begin(); it < ladder_queue.end(); ++it) {
+
+                        // }
                         return new_ladder;
                     }
                     ladder_queue.push(new_ladder);

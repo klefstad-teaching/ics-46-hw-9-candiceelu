@@ -9,18 +9,18 @@ void test_load_words() {
 }
 
 void test_edit_distance() {
-    cout << edit_distance_within("chat", "cheat", 1) << endl;
+    cout << is_adjacent("chat", "cheat") << endl;
 }
 
 void test_generate() {
     set<string> word_list;
     load_words(word_list, "src/words.txt");
-    vector<string> ladder = generate_word_ladder("cat", "dog", word_list);
+    vector<string> ladder = generate_word_ladder("work", "play", word_list);
     print_word_ladder(ladder);
 }
 
 int main() {
     // test_load_words();
-    test_generate();
-    // test_edit_distance();
+    // test_generate();
+    test_edit_distance();
 }
