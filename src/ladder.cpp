@@ -7,6 +7,7 @@ void error(string word1, string word2, string ms)
 
 bool edit_distance_within(const std::string &str1, const std::string &str2, int d)
 {
+    if (str1 == str2) { return true; }
     int length1 = str1.length(), length2 = str2.length();
     if (abs(length1 - length2) > d)
     {
@@ -38,7 +39,6 @@ bool edit_distance_within(const std::string &str1, const std::string &str2, int 
             j++;
         }
     }
-    cout << "COUNT: " << count << endl;
     if (count < d && abs(length1 - length2) == d)
         count++;
     return count == d;
