@@ -15,7 +15,7 @@ void test_edit_distance() {
 void test_generate() {
     set<string> word_list;
     load_words(word_list, "src/words.txt");
-    vector<string> ladder = generate_word_ladder("car", "cheat", word_list);
+    vector<string> ladder = generate_word_ladder("cat", "dog", word_list);
     print_word_ladder(ladder);
 }
 
